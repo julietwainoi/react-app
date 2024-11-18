@@ -14,14 +14,10 @@ jobs:
         with:
           username: julietwanjiku1
           password: ${{ secrets.JULIETWANJIKU1 }}
-          
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v5
+      -
+        name: Build and push
+        uses: docker/build-push-action@v6
         with:
-          context: . 
-          file: ./react-app/Dockerfile 
           push: true
-          tags: |
-            julietwanjiku1/myapp:${{ github.sha }}
-            julietwanjiku1/myapp:latest
+          tags: user/app:latest
    
