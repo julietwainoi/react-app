@@ -18,7 +18,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: .  # This assumes the Dockerfile is in the root directory
+          context: . 
+          file: ./my-react-app/Dockerfile 
           push: true
           tags: |
             julietwanjiku1/myapp:${{ github.sha }}
