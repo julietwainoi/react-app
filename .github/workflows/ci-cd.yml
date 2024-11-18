@@ -18,10 +18,9 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-         context: .
-         file: ./Dockerfile
-         push: true
-         tags: |
-          julietwanjiku1/myapp:${{ github.sha }}
-          julietwanjiku1/myapp:latest
+          context: .  # This assumes the Dockerfile is in the root directory
+          push: true
+          tags: |
+            julietwanjiku1/myapp:${{ github.sha }}
+            julietwanjiku1/myapp:latest
    
