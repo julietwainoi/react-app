@@ -19,7 +19,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: . 
-          file: ./my-react-app/Dockerfile 
+          file: ./react-app/Dockerfile 
           push: true
           tags: |
             julietwanjiku1/myapp:${{ github.sha }}
