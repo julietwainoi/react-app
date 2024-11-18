@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build -t yourusername/my-react-app:latest .
+        run: docker build -t JULIETWANJIKU1/my-react-app:latest .
 
       - name: Log in to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
