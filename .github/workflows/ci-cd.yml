@@ -14,3 +14,16 @@ jobs:
         with:
           username: julietwanjiku1
           password: ${{ secrets.JULIETWANJIKU1 }}
+      # Step 3: Set up Docker Buildx (optional but recommended for building multi-platform images)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Step 4: Build and push the Docker image to Docker Hub
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .  # This tells Docker to use the current directory (root of your repo) to build the image
+          push: true  # Set to true to push the image to Docker Hub
+          tags: |
+            julietwanjiku1/myapp:${{ github.sha }}  # Tag with the commit SHA for unique versioning
+            julietwanjiku1/myapp:latest  # Optionally, tag with 'latest' for the most recent image
