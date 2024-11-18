@@ -24,14 +24,14 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Build Docker image
-        run: docker build -t julietwanjiku1/my-react-app:latest .
-
       - name: Log in to Docker Hub
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        
+      - name: Build Docker image
+        run: docker build -t julietwanjiku1/my-react-app:latest .
 
       - name: Push Docker image to Docker Hub
         run: docker push julietwanjiku1/my-react-app:latest
