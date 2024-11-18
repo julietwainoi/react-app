@@ -27,8 +27,8 @@ jobs:
       - name: Build Docker image
         run: docker build -t julietwanjiku1/my-react-app:latest .
 
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.dckr_pat_mCriJTi1UOO8Zidi0VLC3BG_FRc }}" | docker login -u "${{ secrets.JULIETWANJIKU1 }}" --password-stdin
+      - name: Check Secrets
+        run: echo "DOCKER_USERNAME is ${{ secrets.DOCKER_USERNAME }} and DOCKER_PASSWORD is ${{ secrets.DOCKER_PASSWORD }}"
 
       - name: Push Docker image to Docker Hub
         run: docker push julietwanjiku1/my-react-app:latest
